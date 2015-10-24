@@ -4,17 +4,17 @@
 if (sizeof($argv) > 1 && file($argv[1])) {
  $borderRadius = 0;
 
-	try {
-		$files = file($argv[1]);
-  	$new_file = array();
-    foreach ($files as $line) {
-      if (!preg_match('/border-radius/',$line)) {
-        $new_file[] = $line;
-      }
-      else {
-        $borderRadius++;
-      }
+ try {
+  $files = file($argv[1]);
+  $new_file = array();
+  foreach ($files as $line) {
+    if (!preg_match('/border-radius/',$line)) {
+      $new_file[] = $line;
     }
+    else {
+      $borderRadius++;
+    }
+  }
 
   file_put_contents($argv[1], $new_file);
   if ($borderRadius > 0) {
@@ -23,10 +23,10 @@ if (sizeof($argv) > 1 && file($argv[1])) {
   else {
     echo "Hooray! No border-radius found from file ".$argv[1]."\n";
   }
-		
-	} catch (Exception $e) {
-	 echo "Panic! Unexpected error occurred \n";
-	}
+  
+} catch (Exception $e) {
+  echo "Panic! Unexpected error occurred \n";
+}
 
 }
 else {
