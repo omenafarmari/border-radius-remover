@@ -1,6 +1,14 @@
 
 <?php
 
+/*
+
+remover.php
+
+Removes all instances of border-radius found from a give file. Modifies original file
+
+*/
+
 if (sizeof($argv) > 1 && file($argv[1])) {
  $borderRadius = 0;
 
@@ -23,7 +31,7 @@ if (sizeof($argv) > 1 && file($argv[1])) {
   else {
     echo "Hooray! No border-radius found from file ".$argv[1]."\n";
   }
-  
+
 } catch (Exception $e) {
   echo "Panic! Unexpected error occurred \n";
 }
